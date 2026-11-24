@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#120d2d">
+<title>Our Loy Krathong — A night for two</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Prompt:wght@300;400;500;600;700&display=swap');
+:root{--night:#100b29;--violet:#211342;--plum:#38205d;--pink:#ffb9df;--rose:#ed8fcb;--gold:#ffe2a0;--lav:#d9c4ff;--glass:rgba(30,19,58,.68);--line:rgba(255,255,255,.16);--muted:#c8b9dc}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;color:#fff8ff;font-family:'Prompt',system-ui,sans-serif;background:radial-gradient(ellipse at 50% -10%,#654b8e 0,#2c1d4c 30%,#160f32 62%,#09091d 100%);overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(2px 2px at 10% 20%,#fff 98%,transparent),radial-gradient(1px 1px at 80% 14%,#fff 98%,transparent),radial-gradient(1.5px 1.5px at 66% 44%,#f8dfff 98%,transparent),radial-gradient(1px 1px at 30% 70%,#fff 98%,transparent),radial-gradient(2px 2px at 92% 76%,#fff 98%,transparent);background-size:250px 220px;opacity:.65}
+#sky{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:-1}
+.aurora{position:fixed;inset:-20% -20% auto;height:55vh;pointer-events:none;z-index:-1;background:radial-gradient(ellipse,rgba(205,133,255,.16),transparent 65%);filter:blur(28px);animation:aurora 12s ease-in-out infinite alternate}
+@keyframes aurora{to{transform:translate(8%,12%) scale(1.2);opacity:.55}}
+header{text-align:center;padding:42px 16px 20px;position:relative}
+.eyebrow{font-size:.72rem;letter-spacing:.35em;text-transform:uppercase;color:#e5c9ff}
+h1{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:clamp(2.6rem,9vw,5.6rem);line-height:1.02;margin:10px 0 8px;letter-spacing:.025em;background:linear-gradient(100deg,#fff4d5,#ffc4e5 45%,#d9c5ff 85%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 24px #e8a5ff65)}
+header p{color:#d8c7e9;margin:0;font-size:.95rem;font-weight:300}.header-ornament{color:var(--gold);letter-spacing:.6em;margin-top:18px;font-size:.8rem}
+main{width:min(1040px,92vw);margin:0 auto 60px}.panel{position:relative;background:linear-gradient(145deg,rgba(50,32,82,.78),rgba(19,17,48,.78));border:1px solid var(--line);border-radius:25px;padding:clamp(17px,3vw,28px);margin:18px 0;box-shadow:0 18px 60px #05031370,inset 0 1px 0 #ffffff13;backdrop-filter:blur(16px);overflow:hidden}
+.panel:before{content:"";position:absolute;inset:0 0 auto;height:1px;background:linear-gradient(90deg,transparent,#ffd9f4aa,transparent)}
+h2{font-size:1.13rem;font-weight:500;color:var(--gold);margin:0 0 15px;letter-spacing:.02em}.section-kicker{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:#bd9ee5;margin-bottom:5px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.row>*{flex:1;min-width:130px}
+input,select,button,textarea{font:inherit;border-radius:14px;border:1px solid #ffffff27;padding:13px 15px;background:rgba(13,10,34,.75);color:white;width:100%;outline:none}
+input:focus,textarea:focus{border-color:#e9a9df;box-shadow:0 0 0 3px #e9a9df20}input::placeholder,textarea::placeholder{color:#a99ab9}
+button{background:linear-gradient(115deg,#e58fc6,#a77be0 58%,#8d85df);border:1px solid #ffffff30;font-weight:600;cursor:pointer;box-shadow:0 8px 24px #a45ec52b;transition:transform .2s,filter .2s,box-shadow .2s}
+button:hover{filter:brightness(1.12);transform:translateY(-2px);box-shadow:0 12px 30px #a45ec555}button:active{transform:scale(.98)}button.secondary{background:rgba(255,255,255,.09);box-shadow:none;border:1px solid #ffffff2c}button.gold{background:linear-gradient(120deg,#ffe6aa,#eab5da 65%,#c4a4f5);color:#392344}
+.small{font-size:.83rem;color:var(--muted);line-height:1.7}.status{padding:11px 14px;background:#ffffff0d;border:1px solid #ffffff12;border-radius:13px;color:#ffe4bd;margin-top:12px;white-space:pre-wrap;font-size:.86rem}.hidden{display:none!important}
+.players{display:flex;gap:10px;flex-wrap:wrap}.player{flex:1;min-width:135px;border:1px solid #ffffff20;border-radius:16px;padding:13px;background:linear-gradient(140deg,#ffffff12,#ffffff05)}.player b{display:block;color:var(--pink);font-weight:500}.player span{font-size:.76rem;color:#c8b9dc}
+.code{color:var(--gold);letter-spacing:.24em;font-size:1.25rem}
+.choice-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.choice{padding:14px 8px;border:1px solid #ffffff27;border-radius:17px;text-align:center;background:#ffffff09;cursor:pointer;transition:.2s;color:#fbeeff}.choice.active{outline:2px solid var(--gold);background:#f5c3e51c;box-shadow:0 0 25px #edb5ff2a}.choice span{display:block;font-size:2.35rem;margin-bottom:4px;filter:drop-shadow(0 0 10px #ffcbdf)}.choice small{font-size:.75rem;color:#d7c8e9}
+.hero-river{height:clamp(280px,47vw,440px);position:relative;overflow:hidden;border-radius:23px;border:1px solid #ffffff26;background:linear-gradient(180deg,#30264f 0%,#51416f 30%,#28506b 57%,#102e50 100%);isolation:isolate}
+.hero-river:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,#13234455 60%,#071b37aa 100%),radial-gradient(ellipse at 50% 72%,#d9a8ff35,transparent 45%)}
+.moon{position:absolute;right:12%;top:9%;width:clamp(54px,9vw,88px);height:clamp(54px,9vw,88px);border-radius:50%;background:radial-gradient(circle at 35% 32%,#fffbe9,#ffe5b1 65%,#efc9a0);box-shadow:0 0 24px #ffe6bd,0 0 75px #ffe2bb88,0 0 140px #f6c5ff35}
+.moon:after{content:"";position:absolute;inset:-18px;border-radius:50%;border:1px solid #fff2d44a;animation:moonPulse 4s ease-in-out infinite}
+@keyframes moonPulse{50%{transform:scale(1.13);opacity:.35}}
+.mountain{position:absolute;bottom:36%;width:65%;height:34%;background:#1a2445;clip-path:polygon(0 100%,18% 45%,28% 66%,50% 5%,68% 68%,80% 37%,100% 100%);opacity:.75}.mountain.right{right:-10%;transform:scaleX(-1);opacity:.55}
+.water{position:absolute;inset:58% -20% -30%;background:repeating-radial-gradient(ellipse at 50% 0%,#c9d8ff2b 0 2px,transparent 3px 17px);animation:watermove 8s linear infinite;transform-origin:top}
+@keyframes watermove{to{transform:translateX(65px)}}
+.water-glow{position:absolute;bottom:0;left:15%;right:15%;height:32%;background:radial-gradient(ellipse,#eeb8ff27,transparent 70%);filter:blur(14px)}
+.floats{position:absolute;inset:0;display:flex;align-items:end;justify-content:space-evenly;padding:0 12% 45px;gap:10%;z-index:3}
+.krathong{font-size:clamp(48px,9vw,84px);filter:drop-shadow(0 0 12px #ffd98a) drop-shadow(0 0 25px #ffb4e6);animation:bob 4s ease-in-out infinite;position:relative}
+.krathong:after{content:"";position:absolute;left:10%;right:10%;bottom:-12px;height:14px;background:#ffd9f277;filter:blur(12px);border-radius:50%}
+.krathong:nth-child(2){animation-delay:1.5s}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-13px) rotate(2deg)}}
+.river-label{position:absolute;left:0;right:0;bottom:12px;text-align:center;color:#e8dafa;font-size:.75rem;letter-spacing:.12em;text-shadow:0 2px 12px #000}
+.sparkle{position:absolute;color:#fff3c8;text-shadow:0 0 12px #fff;animation:twinkle 2s ease-in-out infinite}.sparkle:nth-child(odd){animation-delay:1s}@keyframes twinkle{50%{opacity:.15;transform:scale(.55)}}
+.wish-board{min-height:85px;display:grid;place-items:center;text-align:center;border:1px solid #ffffff17;border-radius:16px;background:linear-gradient(120deg,#ffffff0c,#d99cf50b);padding:17px;color:#f9dff0;line-height:1.8;white-space:pre-wrap}
+.wish-line{font-family:'Itim',cursive;font-size:1.25rem;animation:rise 1s ease both;text-shadow:0 0 20px #f6b9e7}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.chatlog{height:180px;overflow:auto;background:#0c102880;border:1px solid #ffffff12;border-radius:15px;padding:12px;margin:12px 0}.msg{margin:8px 0;overflow-wrap:anywhere;font-size:.9rem}.msg b{color:var(--pink);font-weight:500}
+.pill{display:inline-flex;align-items:center;gap:7px;padding:6px 11px;border:1px solid #ffffff20;background:#ffffff0c;border-radius:99px;color:#e6d7f5;font-size:.75rem}
+.divider{height:1px;background:linear-gradient(90deg,transparent,#ffffff25,transparent);margin:17px 0}
+footer{text-align:center;color:#b9a9ce;font-size:.78rem;padding:15px 20px 40px}
+#ending{position:fixed;inset:0;z-index:20;display:none;align-items:center;justify-content:center;padding:18px;background:radial-gradient(ellipse at 50% 50%,#352052f2,#0b0921fa 75%);overflow:hidden}
+#ending.show{display:flex;animation:fadein 1.8s ease both}@keyframes fadein{from{opacity:0}to{opacity:1}}
+.ending-stars{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(#fff 1px,transparent 1.5px),radial-gradient(#ffd9f3 1px,transparent 1.5px);background-size:73px 83px,113px 107px;animation:starDrift 28s linear infinite;opacity:.55}
+@keyframes starDrift{to{background-position:0 300px,100px -250px}}
+.ending-content{width:min(760px,100%);position:relative;text-align:center;z-index:2}
+.ending-kicker{font-size:.68rem;letter-spacing:.35em;color:#e9c8ff}
+.ending-title{font-family:Georgia,serif;font-size:clamp(2.2rem,8vw,4.6rem);font-weight:400;margin:9px 0;color:#ffe3f3;text-shadow:0 0 30px #e5a9ff88}
+.ending-sub{color:#d9c8ec;font-size:.9rem}
+.ending-river{height:clamp(250px,48vh,390px);position:relative;margin:20px 0 12px;border-radius:25px;overflow:hidden;background:linear-gradient(180deg,#282045,#49305f 43%,#16435e 75%,#0a233d);border:1px solid #ffffff30;box-shadow:0 0 70px #b68aff22}
+.ending-river:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 72%,#f2b8e72c,transparent 50%),linear-gradient(180deg,transparent,#050c2677)}
+.ending-river .moon{right:calc(50% - 34px);top:25px;width:68px;height:68px}
+.ending-pair{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;gap:clamp(32px,10vw,100px);padding-bottom:65px}
+.ending-boat{font-size:clamp(66px,15vw,112px);filter:drop-shadow(0 0 16px #ffdf9b) drop-shadow(0 0 34px #ff9fe5);animation:endingFloat 5s ease-in-out infinite}
+.ending-boat:last-child{animation-delay:1.2s}
+@keyframes endingFloat{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-17px) rotate(2deg)}}
+.ending-reflection{position:absolute;bottom:20px;left:18%;right:18%;height:50px;background:radial-gradient(ellipse,#f3b8ed55,transparent 70%);filter:blur(12px)}
+.wish-stream{min-height:76px;display:grid;place-items:center;padding:10px 15px}
+.wish-stream .wish-line{font-size:clamp(1.15rem,4vw,1.75rem);color:#ffe5f5}
+.wish-by{font-size:.72rem;color:#d2bce9;margin-top:4px}
+.ending-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}.ending-actions button{width:auto;min-width:145px}
+.confetti{position:fixed;top:-20px;z-index:30;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#21163beF;border:1px solid #ffffff30;border-radius:99px;padding:10px 17px;color:#fff;z-index:40;box-shadow:0 10px 35px #0008;font-size:.83rem;max-width:90vw;text-align:center}
+@media(max-width:600px){header{padding-top:32px}.choice-grid{grid-template-columns:repeat(2,1fr)}.panel{border-radius:21px}.hero-river{height:300px}.floats{padding-bottom:42px}.row>*{min-width:100%}.row button{min-width:0}.ending-actions button{flex:1}.moon{right:8%}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<canvas id="sky"></canvas><div class="aurora"></div>
+<header>
+ <div class="eyebrow">A little night, a little magic</div>
+ <h1>Our Loy Krathong</h1>
+ <p>ใต้แสงจันทร์ดวงเดียวกัน เรามาลอยกระทงไปด้วยกันนะ</p>
+ <div class="header-ornament">✧　☾　✧　♡　✧</div>
+</header>
+<main>
+<section class="panel" id="connect">
+ <div class="section-kicker">Welcome to our little universe</div>
+ <h2>♡ เข้าสู่ค่ำคืนของเราสองคน</h2>
+ <div class="row"><input id="nickname" maxlength="18" placeholder="ชื่อเล่นของคุณ"><button id="create">สร้างห้องของเรา ✨</button></div>
+ <div class="row" style="margin-top:10px"><input id="roomCode" maxlength="6" placeholder="รหัสห้อง 6 ตัว"><button id="join" class="secondary">เข้าร่วมห้อง ♡</button></div>
+ <p class="small">คนหนึ่งสร้างห้อง แล้วส่งรหัส 6 ตัวให้อีกคน เพื่อเข้ามาอยู่ในแม่น้ำเดียวกัน</p>
+ <div class="status" id="connectStatus">ใส่ชื่อเล่น แล้วเริ่มสร้างความทรงจำกันได้เลย</div>
+</section>
+<div id="game" class="hidden">
+ <section class="panel">
+  <div class="row" style="justify-content:space-between">
+   <div><div class="section-kicker">Our private moonlight</div><h2 style="margin-bottom:5px">ห้องของเราสองคน</h2><div>ROOM CODE　<span class="code" id="roomLabel"></span></div></div>
+   <button id="copyCode" class="secondary" style="max-width:155px">คัดลอกรหัส</button>
+  </div>
+  <div class="players" id="players" style="margin-top:16px"></div>
+ </section>
+ <section class="panel">
+  <div class="section-kicker">Make your own little flower boat</div><h2>🪷 เลือกกระทงที่เป็นของคุณ</h2>
+  <p class="small">เลือกดอกไม้ที่ชอบ แล้วบันทึกไว้ให้กระทงของคุณปรากฏบนสายน้ำ</p>
+  <div class="choice-grid" id="krathongChoices">
+   <div class="choice active" data-kind="🪷"><span>🪷</span><small>บัวแห่งรัก</small></div>
+   <div class="choice" data-kind="🌸"><span>🌸</span><small>ซากุระชมจันทร์</small></div>
+   <div class="choice" data-kind="🌼"><span>🌼</span><small>แสงแห่งความหวัง</small></div>
+   <div class="choice" data-kind="🌺"><span>🌺</span><small>ดอกไม้ในฝัน</small></div>
+  </div>
+  <div class="row" style="margin-top:14px"><button id="saveCraft">บันทึกกระทงของฉัน ♡</button><button id="floatNow" class="secondary">ส่งกระทงลงสายน้ำ ✨</button></div>
+  <div class="status" id="craftStatus">เมื่อทั้งสองคนส่งกระทงลงน้ำ ฉากจบของเราจะเริ่มขึ้น</div>
+ </section>
+ <section class="panel">
+  <div class="section-kicker">A river made of wishes</div><h2>🌙 แม่น้ำใต้แสงจันทร์</h2>
+  <div class="hero-river" id="mainRiver">
+   <div class="moon"></div><div class="mountain"></div><div class="mountain right"></div><div class="water"></div><div class="water-glow"></div>
+   <span class="sparkle" style="left:15%;top:20%">✦</span><span class="sparkle" style="left:36%;top:38%">·</span><span class="sparkle" style="right:28%;top:24%">✧</span><span class="sparkle" style="right:12%;top:48%">✦</span>
+   <div class="floats" id="floatingKrathongs"><div class="krathong">🪷</div><div class="krathong">🪷</div></div>
+   <div class="river-label">TWO HEARTS · ONE MOONLIT RIVER</div>
+  </div>
+  <p class="small" id="floatStatus">กระทงของเราจะรออยู่ตรงนี้ จนกว่าเราจะพร้อมลอยไปด้วยกัน</p>
+  <div class="divider"></div>
+  <h2>💌 ฝากคำอธิษฐานไว้กับสายน้ำ</h2>
+  <div class="row"><input id="wish" maxlength="140" placeholder="ขอพรหรือบอกความในใจสั้น ๆ ..."><button id="sendWish" style="max-width:170px">ปล่อยคำอธิษฐาน</button></div>
+  <div class="wish-board" id="wishBoard">ขอให้คืนนี้เต็มไปด้วยความทรงจำที่ดีของเราสองคน ♡</div>
+ </section>
+ <section class="panel">
+  <div class="section-kicker">A tiny game for two</div><h2>✨ มินิเกมเก็บแสงจันทร์</h2>
+  <p class="small">ช่วยกันเก็บแสงจันทร์ให้ครบ 20 ดวง คะแนนจะอัปเดตพร้อมกันทั้งสองเครื่อง</p>
+  <div class="row"><div class="pill">🌟 คะแนนรวม <b id="score">0</b> / 20</div><button id="collect">เก็บแสงจันทร์ +1</button></div>
+  <div class="status" id="gameStatus">มาเก็บดาวด้วยกันนะ</div>
+ </section>
+ <section class="panel">
+  <div class="section-kicker">Whisper across the river</div><h2>💬 กระซิบข้อความถึงกัน</h2>
+  <div class="chatlog" id="chatlog"></div>
+  <div class="row"><input id="chatInput" maxlength="180" placeholder="พิมพ์ข้อความถึงอีกคน..."><button id="sendChat" style="max-width:130px">ส่ง ♡</button></div>
+ </section>
+</div>
+</main>
+<footer>Made with a little moonlight, for two hearts ♡</footer>
+
+<div id="ending" aria-hidden="true">
+ <div class="ending-stars"></div>
+ <div class="ending-content">
+  <div class="ending-kicker">OUR WISHES · OUR NIGHT · OUR MEMORY</div>
+  <h2 class="ending-title">A wish for us</h2>
+  <div class="ending-sub">กระทงของเราทั้งสอง จะลอยเคียงกันอยู่ตรงนี้</div>
+  <div class="ending-river">
+   <div class="moon"></div><div class="water"></div><div class="ending-reflection"></div>
+   <div class="ending-pair"><div class="ending-boat" id="endingBoat1">🪷</div><div class="ending-boat" id="endingBoat2">🪷</div></div>
+  </div>
+  <div class="wish-stream"><div><div class="wish-line" id="endingWish">ขอให้เราได้สร้างความทรงจำดี ๆ ด้วยกันอีกมากมาย ♡</div><div class="wish-by" id="endingBy">a little wish from our hearts</div></div></div>
+  <div class="ending-actions"><button id="soundToggle" class="secondary">♫ เปิดเสียงบรรยากาศ</button><button id="capture" class="gold">บันทึกภาพความทรงจำ</button><button id="closeEnding" class="secondary">กลับไปดูห้องของเรา</button></div>
+ </div>
+</div>
+<div id="toast" class="toast hidden"></div>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getDatabase, ref, set, get, onValue, push, runTransaction, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+const firebaseConfig={
+ apiKey:"AIzaSyDjXzpOneHcID1NtKjRWmkNtjdnOe4lYxM",
+ authDomain:"oul-loy-krathong.firebaseapp.com",
+ databaseURL:"https://oul-loy-krathong-default-rtdb.asia-southeast1.firebasedatabase.app",
+ projectId:"oul-loy-krathong",
+ storageBucket:"oul-loy-krathong.firebasestorage.app",
+ messagingSenderId:"736973709028",
+ appId:"1:736973709028:web:51761c7f17a56686fe16f1",
+ measurementId:"G-6X6DLCXRQW"
+};
+const $=id=>document.getElementById(id);
+let app,auth,db,uid,room="",nick="",selected="🪷",stopRoom=null,stopPlayers=null,stopChat=null,wishTimer=null,wishItems=[],wishIndex=0,endingOpen=false,audioCtx=null,soundOn=false;
+const status=(id,msg)=>$(id).textContent=msg;
+const makeCode=()=>Math.random().toString(36).slice(2,8).toUpperCase();
+const roomRef=()=>ref(db,`rooms/${room}`);
+const safe=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function toast(message){const el=$("toast");el.textContent=message;el.classList.remove("hidden");clearTimeout(toast.t);toast.t=setTimeout(()=>el.classList.add("hidden"),2600)}
+async function boot(){if(!app){app=initializeApp(firebaseConfig);auth=getAuth(app);db=getDatabase(app)}if(!auth.currentUser){const cred=await signInAnonymously(auth);uid=cred.user.uid}else uid=auth.currentUser.uid}
+async function enterRoom(code,create=false){
+ nick=$("nickname").value.trim().slice(0,18);if(!nick){status("connectStatus","ใส่ชื่อเล่นก่อนนะ ♡");return}
+ try{
+  status("connectStatus","กำลังเปิดประตูสู่แม่น้ำของเรา...");
+  await boot();room=code;const r=roomRef();const snap=await get(r);
+  if(create){if(snap.exists()){return enterRoom(makeCode(),true)}await set(r,{createdAt:serverTimestamp(),players:{},score:0,floating:false,floatVotes:{},wishes:{},chat:{},krathongs:{}})}
+  else if(!snap.exists()){status("connectStatus","ไม่พบห้องนี้ ลองตรวจสอบรหัสอีกครั้งนะ");return}
+  const current=await get(ref(db,`rooms/${room}/players`));const members=current.val()||{};
+  if(!members[uid]&&Object.keys(members).length>=2){status("connectStatus","ห้องนี้มีผู้เล่นครบ 2 คนแล้ว");return}
+  await set(ref(db,`rooms/${room}/players/${uid}`),{name:nick,joinedAt:serverTimestamp(),online:true});
+  $("connect").classList.add("hidden");$("game").classList.remove("hidden");$("roomLabel").textContent=room;
+  if(stopRoom)stopRoom();if(stopPlayers)stopPlayers();if(stopChat)stopChat();
+  stopRoom=onValue(r,s=>renderRoom(s.val()||{}));
+  stopPlayers=onValue(ref(db,`rooms/${room}/players`),s=>renderPlayers(s.val()||{}));
+  stopChat=onValue(ref(db,`rooms/${room}/chat`),s=>renderChat(s.val()||{}));
+ }catch(e){status("connectStatus","เชื่อมต่อไม่สำเร็จ: "+e.message)}
+}
+function renderRoom(data){
+ const players=data.players||{},ids=Object.keys(players).slice(0,2),ks=data.krathongs||{};
+ $("floatingKrathongs").innerHTML=ids.map(id=>`<div class="krathong">${safe(ks[id]?.kind||"🪷")}</div>`).join("")||'<div class="krathong">🪷</div>';
+ status("floatStatus",data.floating?"กระทงของเรากำลังลอยเคียงกันแล้ว ✨":"เมื่อทั้งคู่กดส่งกระทงลงน้ำ ฉากพิเศษจะเริ่มขึ้น");
+ const wishes=Object.values(data.wishes||{});wishItems=wishes.slice(-30);
+ $("wishBoard").textContent=wishItems.length?wishItems.slice(-3).map(w=>`${w.name}: ${w.text}`).join("\n"):"คำอธิษฐานของเราจะอยู่ตรงนี้";
+ $("score").textContent=data.score||0;status("gameStatus",(data.score||0)>=20?"เก็บแสงจันทร์ครบ 20 ดวงแล้ว เก่งมาก! 🌙":`เหลืออีก ${20-(data.score||0)} ดวง มาเก็บด้วยกันนะ`);
+ const votes=data.floatVotes||{},both=ids.length>=2&&ids.every(id=>votes[id]===true);
+ if(both&&!data.floating){set(ref(db,`rooms/${room}/floating`),true).catch(()=>{})}
+ if(data.floating){$("endingBoat1").textContent=ids[0]?ks[ids[0]]?.kind||"🪷":"🪷";$("endingBoat2").textContent=ids[1]?ks[ids[1]]?.kind||"🪷":"🪷";if(!endingOpen)showEnding()}
+}
+function renderPlayers(players){const entries=Object.entries(players);$("players").innerHTML=entries.map(([id,p],i)=>`<div class="player"><b>${i===0?"🌙":"🌸"} ${safe(p.name)} ${id===uid?"(คุณ)":""}</b><span>พร้อมอยู่ในค่ำคืนนี้ ♡</span></div>`).join("")||'<div class="small">กำลังรออีกคนเข้ามา...</div>'}
+function renderChat(messages){const arr=Object.values(messages).slice(-45);$("chatlog").innerHTML=arr.map(m=>`<div class="msg"><b>${safe(m.name)}:</b> ${safe(m.text)}</div>`).join("");$("chatlog").scrollTop=$("chatlog").scrollHeight}
+function showEnding(){endingOpen=true;$("ending").classList.add("show");$("ending").setAttribute("aria-hidden","false");startWishStream();makeConfetti(34)}
+function startWishStream(){clearInterval(wishTimer);wishIndex=0;const update=()=>{if(!wishItems.length){$("endingWish").textContent="ขอให้เราได้สร้างความทรงจำดี ๆ ด้วยกันอีกมากมาย ♡";$("endingBy").textContent="a little wish from our hearts";return}const w=wishItems[wishIndex%wishItems.length];$("endingWish").textContent=w.text;$("endingWish").style.animation="none";void $("endingWish").offsetWidth;$("endingWish").style.animation="rise 1s ease both";$("endingBy").textContent="a wish from "+w.name;wishIndex++};update();wishTimer=setInterval(update,4800)}
+function makeConfetti(count){const symbols=["✦","✧","♡","🌸","✨"];for(let i=0;i<count;i++){const e=document.createElement("span");e.className="confetti";e.textContent=symbols[Math.floor(Math.random()*symbols.length)];e.style.left=Math.random()*100+"vw";e.style.color=["#ffe5a8","#ffc4e8","#d9c4ff","#fff"][i%4];e.style.fontSize=(12+Math.random()*18)+"px";e.style.animationDuration=(4+Math.random()*5)+"s";document.body.appendChild(e);setTimeout(()=>e.remove(),9500)}}
+$("create").onclick=()=>enterRoom(makeCode(),true);
+$("join").onclick=()=>{const c=$("roomCode").value.trim().toUpperCase();if(c.length!==6){status("connectStatus","รหัสห้องต้องมี 6 ตัวอักษร");return}enterRoom(c,false)};
+$("copyCode").onclick=async()=>{try{await navigator.clipboard.writeText(room);toast("คัดลอกรหัสห้องแล้ว ส่งให้อีกคนได้เลย ♡")}catch{toast("รหัสห้องของคุณคือ "+room)}};
+document.querySelectorAll(".choice").forEach(el=>el.onclick=()=>{document.querySelectorAll(".choice").forEach(x=>x.classList.remove("active"));el.classList.add("active");selected=el.dataset.kind});
+$("saveCraft").onclick=async()=>{try{await set(ref(db,`rooms/${room}/krathongs/${uid}`),{kind:selected});status("craftStatus","กระทงของคุณพร้อมแล้ว รออีกคนได้เลย ♡")}catch(e){status("craftStatus","บันทึกไม่สำเร็จ: "+e.message)}};
+$("floatNow").onclick=async()=>{try{await set(ref(db,`rooms/${room}/floatVotes/${uid}`),true);status("craftStatus","คุณพร้อมลอยกระทงแล้ว รออีกคนมาร่วมช่วงเวลานี้นะ ♡")}catch(e){status("craftStatus","ส่งกระทงไม่สำเร็จ: "+e.message)}};
+$("sendWish").onclick=async()=>{const t=$("wish").value.trim();if(!t)return;try{await push(ref(db,`rooms/${room}/wishes`),{name:nick,text:t.slice(0,140),at:serverTimestamp()});$("wish").value="";toast("ส่งคำอธิษฐานไปกับสายน้ำแล้ว ♡")}catch(e){toast("ส่งไม่สำเร็จ: "+e.message)}};
+$("collect").onclick=async()=>{try{await runTransaction(ref(db,`rooms/${room}/score`),n=>Math.min((n||0)+1,20))}catch(e){toast("เก็บแสงจันทร์ไม่สำเร็จ")}};
+async function sendMessage(){const t=$("chatInput").value.trim();if(!t)return;try{await push(ref(db,`rooms/${room}/chat`),{name:nick,text:t.slice(0,180),at:serverTimestamp()});$("chatInput").value=""}catch(e){toast("ส่งข้อความไม่สำเร็จ")}}
+$("sendChat").onclick=sendMessage;$("chatInput").addEventListener("keydown",e=>{if(e.key==="Enter")sendMessage()});
+$("closeEnding").onclick=()=>{$("ending").classList.remove("show");$("ending").setAttribute("aria-hidden","true");endingOpen=false;clearInterval(wishTimer)};
+$("soundToggle").onclick=async()=>{try{if(!audioCtx)audioCtx=new (window.AudioContext||window.webkitAudioContext)();if(audioCtx.state==="suspended")await audioCtx.resume();soundOn=!soundOn;if(soundOn){playChime();$("soundToggle").textContent="♫ ปิดเสียงบรรยากาศ";soundLoop=setInterval(playChime,2600)}else{clearInterval(soundLoop);$("soundToggle").textContent="♫ เปิดเสียงบรรยากาศ"}}catch(e){toast("อุปกรณ์นี้ไม่รองรับเสียง")}};
+let soundLoop=null;function playChime(){if(!audioCtx||!soundOn)return;const now=audioCtx.currentTime;[523.25,659.25,783.99].forEach((f,i)=>{const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type="sine";o.frequency.value=f;o.connect(g);g.connect(audioCtx.destination);g.gain.setValueAtTime(.0001,now+i*.16);g.gain.exponentialRampToValueAtTime(.035,now+i*.16+.04);g.gain.exponentialRampToValueAtTime(.0001,now+i*.16+.8);o.start(now+i*.16);o.stop(now+i*.16+.85)})}
+$("capture").onclick=async()=>{try{const canvas=document.createElement("canvas"),ctx=canvas.getContext("2d");canvas.width=1200;canvas.height=900;const grad=ctx.createLinearGradient(0,0,0,900);grad.addColorStop(0,"#24173e");grad.addColorStop(1,"#091b37");ctx.fillStyle=grad;ctx.fillRect(0,0,1200,900);ctx.fillStyle="#fff0c6";ctx.shadowColor="#fff0c6";ctx.shadowBlur=45;ctx.beginPath();ctx.arc(600,170,62,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;ctx.textAlign="center";ctx.fillStyle="#ffe3f3";ctx.font="54px Georgia";ctx.fillText("Our Loy Krathong",600,340);ctx.font="100px serif";ctx.fillText($("endingBoat1").textContent+"     "+$("endingBoat2").textContent,600,540);ctx.fillStyle="#f8dff0";ctx.font="30px sans-serif";ctx.fillText("A wish for us",600,650);ctx.font="24px sans-serif";ctx.fillText("Under the same moon, we make our wishes together.",600,710);ctx.fillStyle="#d9c4ff";ctx.font="22px sans-serif";ctx.fillText("♡",600,780);const a=document.createElement("a");a.download="our-loy-krathong-memory.png";a.href=canvas.toDataURL("image/png");a.click();toast("บันทึกภาพความทรงจำแล้ว ♡")}catch(e){toast("ไม่สามารถบันทึกภาพได้บนเบราว์เซอร์นี้")}};
+/* Gentle animated star field */
+const sky=$("sky"),ctx=sky.getContext("2d");let stars=[];function resize(){sky.width=innerWidth*devicePixelRatio;sky.height=innerHeight*devicePixelRatio;sky.style.width=innerWidth+"px";sky.style.height=innerHeight+"px";ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);stars=Array.from({length:Math.min(100,Math.floor(innerWidth/7))},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*1.5+.3,a:Math.random(),v:Math.random()*.008+.002}))}function draw(){ctx.clearRect(0,0,innerWidth,innerHeight);for(const s of stars){s.a+=s.v;if(s.a>1||s.a<0)s.v*=-1;ctx.globalAlpha=Math.max(.12,Math.min(.85,s.a));ctx.fillStyle="#fff4ff";ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fill()}ctx.globalAlpha=1;requestAnimationFrame(draw)}addEventListener("resize",resize);resize();draw();
+</script>
+</body>
+</html>
