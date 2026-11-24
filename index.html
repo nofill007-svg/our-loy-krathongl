@@ -1,0 +1,1462 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0820">
+<title>Our Loy Krathong — A night for two</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Itim&family=Prompt:wght@300;400;500;600&display=swap');
+
+:root {
+  --bg-deep: #070616;
+  --night: #0f0b29;
+  --plum: #2e1a4e;
+  --pink: #ffc2e2;
+  --rose: #f08cc8;
+  --gold: #ffe5a3;
+  --gold-glow: rgba(255, 215, 130, 0.45);
+  --lav: #d9c4ff;
+  --glass: rgba(22, 16, 46, 0.62);
+  --glass-border: rgba(255, 235, 250, 0.16);
+  --muted: #cbbad9;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: #fff9fe;
+  font-family: 'Prompt', system-ui, sans-serif;
+  background: radial-gradient(ellipse at 50% -15%, #3b2463 0%, #191136 42%, #0a081d 80%, #050410 100%);
+  overflow-x: hidden;
+}
+
+#sky {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -2;
+}
+
+.aurora {
+  position: fixed;
+  inset: -15% -20% auto;
+  height: 55vh;
+  pointer-events: none;
+  z-index: -1;
+  background: radial-gradient(ellipse at 50% 30%, rgba(196, 128, 255, 0.14), rgba(255, 175, 215, 0.06) 45%, transparent 70%);
+  filter: blur(36px);
+  animation: aurora 14s ease-in-out infinite alternate;
+}
+@keyframes aurora {
+  to { transform: translate(6%, 10%) scale(1.18); opacity: 0.6; }
+}
+
+header {
+  text-align: center;
+  padding: 46px 16px 22px;
+  position: relative;
+}
+.eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: #e6cbff;
+  opacity: 0.9;
+}
+h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(2.8rem, 9.5vw, 5.8rem);
+  line-height: 1;
+  margin: 10px 0 10px;
+  letter-spacing: 0.02em;
+  background: linear-gradient(105deg, #fff6dc 10%, #ffc7e6 48%, #d7c2ff 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 4px 28px rgba(235, 165, 255, 0.45));
+}
+header p {
+  color: #decde9;
+  margin: 0;
+  font-size: 0.96rem;
+  font-weight: 300;
+}
+.header-ornament {
+  color: var(--gold);
+  letter-spacing: 0.65em;
+  margin-top: 18px;
+  font-size: 0.82rem;
+  opacity: 0.85;
+}
+
+main {
+  width: min(1040px, 92vw);
+  margin: 0 auto 64px;
+}
+
+.panel {
+  position: relative;
+  background: linear-gradient(155deg, rgba(42, 27, 72, 0.68), rgba(15, 13, 38, 0.76));
+  border: 1px solid var(--glass-border);
+  border-radius: 26px;
+  padding: clamp(18px, 3.2vw, 30px);
+  margin: 20px 0;
+  box-shadow: 0 22px 65px rgba(3, 2, 14, 0.68), inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  overflow: hidden;
+}
+.panel:before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 224, 245, 0.65), transparent);
+}
+
+h2 {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--gold);
+  margin: 0 0 14px;
+  letter-spacing: 0.02em;
+}
+.section-kicker {
+  font-size: 0.68rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #bfa1e6;
+  margin-bottom: 5px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.row > * { flex: 1; min-width: 130px; }
+
+input, select, button, textarea {
+  font: inherit;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 13px 16px;
+  background: rgba(10, 8, 28, 0.72);
+  color: #fff;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s, filter 0.2s;
+}
+input:focus, textarea:focus {
+  border-color: #f0addf;
+  box-shadow: 0 0 0 3px rgba(240, 173, 223, 0.18);
+}
+input::placeholder, textarea::placeholder { color: #a796b8; }
+
+button {
+  background: linear-gradient(120deg, #e88ec5, #a476df 58%, #827ce0);
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(164, 94, 197, 0.28);
+}
+button:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(164, 94, 197, 0.48);
+}
+button:active { transform: scale(0.98); }
+button.secondary {
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: none;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+button.gold {
+  background: linear-gradient(120deg, #ffe7ab, #ebb5da 62%, #c3a2f5);
+  color: #341e40;
+  font-weight: 600;
+}
+
+.small { font-size: 0.84rem; color: var(--muted); line-height: 1.7; }
+.status {
+  padding: 11px 15px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 13px;
+  color: #ffe6bf;
+  margin-top: 12px;
+  white-space: pre-wrap;
+  font-size: 0.86rem;
+}
+.hidden { display: none !important; }
+
+.players { display: flex; gap: 12px; flex-wrap: wrap; }
+.player {
+  flex: 1;
+  min-width: 140px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 16px;
+  padding: 13px 15px;
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.player b { display: block; color: var(--pink); font-weight: 500; font-size: 0.98rem; }
+.player span { font-size: 0.76rem; color: #cbbad9; }
+.online-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #7ef5b8;
+  box-shadow: 0 0 10px #7ef5b8;
+}
+.code { color: var(--gold); letter-spacing: 0.25em; font-size: 1.3rem; font-weight: 600; }
+
+/* Krathong Choices */
+.choice-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 10px;
+}
+.choice {
+  padding: 14px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 18px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  color: #fbeeff;
+}
+.choice:hover { background: rgba(255, 255, 255, 0.1); transform: translateY(-2px); }
+.choice.active {
+  outline: 2px solid var(--gold);
+  background: rgba(245, 195, 229, 0.16);
+  box-shadow: 0 0 28px rgba(237, 181, 255, 0.28);
+}
+.choice-svg {
+  width: 64px;
+  height: 58px;
+  margin: 0 auto 6px;
+  display: block;
+  filter: drop-shadow(0 4px 10px rgba(255, 200, 140, 0.35));
+}
+.choice small { font-size: 0.78rem; color: #e2d3f0; display: block; }
+
+/* Realistic River Stage */
+.hero-river {
+  height: clamp(320px, 50vw, 460px);
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: #0b162c;
+  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.65);
+  isolation: isolate;
+}
+#riverCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 1;
+}
+.floats {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0 8% 52px;
+  gap: clamp(24px, 12vw, 140px);
+  z-index: 3;
+  pointer-events: none;
+}
+.krathong-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: bob 4.6s ease-in-out infinite;
+  position: relative;
+  transition: transform 1.2s ease;
+}
+.krathong-wrap:nth-child(2) {
+  animation-delay: 1.7s;
+}
+.floats.together .krathong-wrap:first-child {
+  transform: translateX(18px);
+}
+.floats.together .krathong-wrap:last-child {
+  transform: translateX(-18px);
+}
+@keyframes bob {
+  0%, 100% { transform: translateY(0px) rotate(-1.8deg); }
+  50% { transform: translateY(-11px) rotate(1.8deg); }
+}
+
+.krathong-svg {
+  width: clamp(92px, 15vw, 134px);
+  height: auto;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.65));
+}
+.flame {
+  transform-origin: 50% 85%;
+  animation: flicker 0.16s infinite alternate ease-in-out;
+}
+@keyframes flicker {
+  0% { transform: scale(1) rotate(-2deg); opacity: 0.92; }
+  100% { transform: scale(1.08, 1.14) rotate(2deg); opacity: 1; }
+}
+.water-ripple {
+  width: 115%;
+  height: 18px;
+  margin-top: -10px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(255, 224, 150, 0.45) 0%, rgba(255, 185, 230, 0.18) 50%, transparent 75%);
+  animation: ripplePulse 3s ease-in-out infinite;
+}
+@keyframes ripplePulse {
+  0%, 100% { transform: scaleX(0.95); opacity: 0.7; }
+  50% { transform: scaleX(1.15); opacity: 1; }
+}
+.krathong-tag {
+  margin-top: 6px;
+  padding: 3px 11px;
+  border-radius: 99px;
+  background: rgba(12, 10, 32, 0.68);
+  border: 1px solid rgba(255, 235, 245, 0.22);
+  font-size: 0.74rem;
+  color: #ffe8f6;
+  backdrop-filter: blur(6px);
+  white-space: nowrap;
+}
+
+/* Interactive Moonlight Orbs in River */
+#orbLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+}
+.moon-orb {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fffbe6 15%, #ffe08c 55%, transparent 75%);
+  box-shadow: 0 0 18px #ffe49e, 0 0 32px #ffbae6;
+  cursor: pointer;
+  pointer-events: auto;
+  animation: orbFloat 4s ease-in-out infinite;
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  color: #fff;
+  transition: transform 0.2s, opacity 0.3s;
+}
+.moon-orb:hover { transform: scale(1.25); }
+@keyframes orbFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.river-label {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 12px;
+  text-align: center;
+  color: rgba(235, 222, 250, 0.78);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-shadow: 0 2px 10px #000;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.wish-board {
+  min-height: 92px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.07), rgba(217, 156, 245, 0.06));
+  padding: 18px;
+  color: #fae2f2;
+  line-height: 1.85;
+  white-space: pre-wrap;
+  margin-top: 12px;
+}
+.wish-line {
+  font-family: 'Itim', cursive;
+  font-size: 1.28rem;
+  animation: rise 1s ease both;
+  text-shadow: 0 0 20px rgba(246, 185, 231, 0.65);
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.chatlog {
+  height: 190px;
+  overflow-y: auto;
+  background: rgba(9, 12, 32, 0.58);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 14px;
+  margin: 12px 0;
+}
+.msg { margin: 8px 0; overflow-wrap: anywhere; font-size: 0.9rem; line-height: 1.5; }
+.msg b { color: var(--pink); font-weight: 500; }
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  color: #efe2fa;
+  font-size: 0.9rem;
+}
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  margin: 20px 0;
+}
+
+footer {
+  text-align: center;
+  color: #b7a6cc;
+  font-size: 0.78rem;
+  padding: 15px 20px 44px;
+}
+
+/* Ending Cinematic Overlay */
+#ending {
+  position: fixed;
+  inset: 0;
+  z-index: 25;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  background: radial-gradient(ellipse at 50% 45%, rgba(44, 25, 74, 0.95), rgba(8, 7, 24, 0.98) 78%);
+  backdrop-filter: blur(12px);
+  overflow-y: auto;
+}
+#ending.show { display: flex; animation: fadein 1.6s ease both; }
+@keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+
+.ending-content {
+  width: min(780px, 100%);
+  position: relative;
+  text-align: center;
+  z-index: 2;
+}
+.ending-kicker { font-size: 0.7rem; letter-spacing: 0.36em; color: #e9c8ff; }
+.ending-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.4rem, 8vw, 4.8rem);
+  font-weight: 500;
+  margin: 8px 0;
+  color: #ffe5f4;
+  text-shadow: 0 0 32px rgba(229, 169, 255, 0.65);
+}
+.ending-sub { color: #decdec; font-size: 0.92rem; }
+
+.ending-river {
+  height: clamp(260px, 46vh, 380px);
+  position: relative;
+  margin: 20px 0 14px;
+  border-radius: 26px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 0 0 80px rgba(182, 138, 255, 0.24);
+  background: #0b162c;
+}
+#endingCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.ending-pair {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: clamp(28px, 9vw, 96px);
+  padding-bottom: 48px;
+  z-index: 3;
+}
+.ending-boat-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: endingFloat 5.2s ease-in-out infinite;
+}
+.ending-boat-wrap:last-child { animation-delay: 1.4s; }
+.ending-boat-wrap .krathong-svg { width: clamp(104px, 18vw, 152px); }
+@keyframes endingFloat {
+  0%, 100% { transform: translateY(0) rotate(-1.5deg); }
+  50% { transform: translateY(-15px) rotate(1.5deg); }
+}
+
+.wish-stream { min-height: 82px; display: grid; place-items: center; padding: 10px 15px; }
+.wish-stream .wish-line { font-size: clamp(1.2rem, 4vw, 1.8rem); color: #ffe7f6; }
+.wish-by { font-size: 0.76rem; color: #d4bee9; margin-top: 5px; }
+.ending-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.ending-actions button { width: auto; min-width: 155px; }
+
+.confetti {
+  position: fixed;
+  top: -24px;
+  z-index: 35;
+  pointer-events: none;
+  animation: fall linear forwards;
+}
+@keyframes fall {
+  to { transform: translateY(110vh) rotate(540deg); opacity: 0; }
+}
+
+.toast {
+  position: fixed;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(28, 19, 54, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 99px;
+  padding: 10px 18px;
+  color: #fff;
+  z-index: 45;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55);
+  font-size: 0.84rem;
+  max-width: 90vw;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  header { padding-top: 32px; }
+  .choice-grid { grid-template-columns: repeat(2, 1fr); }
+  .panel { border-radius: 22px; }
+  .row > * { min-width: 100%; }
+  .row button { min-width: 0; }
+  .ending-actions button { flex: 1; }
+}
+</style>
+</head>
+<body>
+<canvas id="sky"></canvas>
+<div class="aurora"></div>
+
+<header>
+  <div class="eyebrow">A little night, a little magic</div>
+  <h1>Our Loy Krathong</h1>
+  <p>ใต้แสงจันทร์ดวงเดียวกัน เรามาลอยกระทงไปด้วยกันนะ</p>
+  <div class="header-ornament">✧　☾　✧　♡　✧</div>
+</header>
+
+<main>
+  <!-- Connect Panel -->
+  <section class="panel" id="connect">
+    <div class="section-kicker">Welcome to our little universe</div>
+    <h2>♡ เข้าสู่ค่ำคืนของเราสองคน</h2>
+    <div class="row">
+      <input id="nickname" maxlength="18" placeholder="ชื่อเล่นของคุณ">
+      <button id="create">สร้างห้องของเรา ✨</button>
+    </div>
+    <div class="row" style="margin-top:10px">
+      <input id="roomCode" maxlength="6" placeholder="รหัสห้อง 6 ตัว">
+      <button id="join" class="secondary">เข้าร่วมห้อง ♡</button>
+    </div>
+    <p class="small">คนหนึ่งสร้างห้อง แล้วส่งรหัส 6 ตัวให้อีกคน เพื่อเข้ามาอยู่ในแม่น้ำเดียวกัน</p>
+    <div class="status" id="connectStatus">ใส่ชื่อเล่น แล้วเริ่มสร้างความทรงจำกันได้เลย</div>
+  </section>
+
+  <!-- Multiplayer Game Room -->
+  <div id="game" class="hidden">
+    <section class="panel">
+      <div class="row" style="justify-content:space-between">
+        <div>
+          <div class="section-kicker">Our private moonlight</div>
+          <h2 style="margin-bottom:5px">ห้องของเราสองคน</h2>
+          <div>ROOM CODE　<span class="code" id="roomLabel"></span></div>
+        </div>
+        <button id="copyCode" class="secondary" style="max-width:155px">คัดลอกรหัส</button>
+      </div>
+      <div class="players" id="players" style="margin-top:16px"></div>
+    </section>
+
+    <section class="panel">
+      <div class="section-kicker">Make your own little flower boat</div>
+      <h2>🪷 เลือกกระทงที่เป็นของคุณ</h2>
+      <p class="small">เลือกกลีบดอกไม้และแสงเทียนที่ชอบ แล้วบันทึกไว้ให้กระทงของคุณปรากฏบนสายน้ำ</p>
+      <div class="choice-grid" id="krathongChoices">
+        <div class="choice active" data-kind="lotus">
+          <div id="prev-lotus"></div>
+          <small>บัวหลวงแห่งรัก</small>
+        </div>
+        <div class="choice" data-kind="sakura">
+          <div id="prev-sakura"></div>
+          <small>กลีบชมพูชมจันทร์</small>
+        </div>
+        <div class="choice" data-kind="marigold">
+          <div id="prev-marigold"></div>
+          <small>ดาวเรืองแสงทอง</small>
+        </div>
+        <div class="choice" data-kind="orchid">
+          <div id="prev-orchid"></div>
+          <small>กล้วยไม้ในฝัน</small>
+        </div>
+      </div>
+      <div class="row" style="margin-top:14px">
+        <button id="saveCraft">บันทึกกระทงของฉัน ♡</button>
+        <button id="floatNow" class="secondary">ส่งกระทงลงสายน้ำ ✨</button>
+      </div>
+      <div class="status" id="craftStatus">เมื่อทั้งสองคนส่งกระทงลงน้ำ ฉากจบของเราจะเริ่มขึ้น</div>
+    </section>
+
+    <section class="panel">
+      <div class="section-kicker">A river made of wishes</div>
+      <h2>🌙 แม่น้ำใต้แสงจันทร์</h2>
+      <div class="hero-river" id="mainRiver">
+        <canvas id="riverCanvas"></canvas>
+        <div id="orbLayer"></div>
+        <div class="floats" id="floatingKrathongs"></div>
+        <div class="river-label">TWO HEARTS · ONE MOONLIT RIVER</div>
+      </div>
+      <p class="small" id="floatStatus">กระทงของเราจะรออยู่ตรงนี้ จนกว่าเราจะพร้อมลอยไปด้วยกัน</p>
+      
+      <div class="divider"></div>
+      
+      <h2>💌 ฝากคำอธิษฐานไว้กับสายน้ำ</h2>
+      <div class="row">
+        <input id="wish" maxlength="140" placeholder="ขอพรหรือบอกความในใจสั้น ๆ ...">
+        <button id="sendWish" style="max-width:170px">ปล่อยคำอธิษฐาน</button>
+      </div>
+      <div class="wish-board" id="wishBoard">ขอให้คืนนี้เต็มไปด้วยความทรงจำที่ดีของเราสองคน ♡</div>
+    </section>
+
+    <section class="panel">
+      <div class="section-kicker">A tiny game for two</div>
+      <h2>✨ มินิเกมเก็บแสงจันทร์</h2>
+      <p class="small">ช่วยกันเก็บแสงจันทร์ให้ครบ 20 ดวง (กดปุ่มด้านล่าง หรือแตะดวงแสงที่ลอยบนแม่น้ำก็ได้นะ)</p>
+      <div class="row">
+        <div class="pill">🌟 คะแนนรวม <b id="score">0</b> / 20</div>
+        <button id="collect">เก็บแสงจันทร์ +1</button>
+      </div>
+      <div class="status" id="gameStatus">มาเก็บดาวด้วยกันนะ</div>
+    </section>
+
+    <section class="panel">
+      <div class="section-kicker">Whisper across the river</div>
+      <h2>💬 กระซิบข้อความถึงกัน</h2>
+      <div class="chatlog" id="chatlog"></div>
+      <div class="row">
+        <input id="chatInput" maxlength="180" placeholder="พิมพ์ข้อความถึงอีกคน...">
+        <button id="sendChat" style="max-width:130px">ส่ง ♡</button>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>Made with a little moonlight, for two hearts ♡</footer>
+
+<!-- Ending Cinematic Modal -->
+<div id="ending" aria-hidden="true">
+  <div class="ending-content">
+    <div class="ending-kicker">OUR WISHES · OUR NIGHT · OUR MEMORY</div>
+    <h2 class="ending-title">A wish for us</h2>
+    <div class="ending-sub">กระทงของเราทั้งสอง จะลอยเคียงกันอยู่ตรงนี้</div>
+    <div class="ending-river">
+      <canvas id="endingCanvas"></canvas>
+      <div class="ending-pair">
+        <div class="ending-boat-wrap" id="endingBoat1"></div>
+        <div class="ending-boat-wrap" id="endingBoat2"></div>
+      </div>
+    </div>
+    <div class="wish-stream">
+      <div>
+        <div class="wish-line" id="endingWish">ขอให้เราได้สร้างความทรงจำดี ๆ ด้วยกันอีกมากมาย ♡</div>
+        <div class="wish-by" id="endingBy">a little wish from our hearts</div>
+      </div>
+    </div>
+    <div class="ending-actions">
+      <button id="soundToggle" class="secondary">♫ เปิดเสียงบรรยากาศ</button>
+      <button id="capture" class="gold">บันทึกภาพความทรงจำ</button>
+      <button id="closeEnding" class="secondary">กลับไปดูห้องของเรา</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast hidden"></div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getDatabase, ref, set, get, onValue, push, runTransaction, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDjXzpOneHcID1NtKjRWmkNtjdnOe4lYxM",
+  authDomain: "oul-loy-krathong.firebaseapp.com",
+  databaseURL: "https://oul-loy-krathong-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "oul-loy-krathong",
+  storageBucket: "oul-loy-krathong.firebasestorage.app",
+  messagingSenderId: "736973709028",
+  appId: "1:736973709028:web:51761c7f17a56686fe16f1",
+  measurementId: "G-6X6DLCXRQW"
+};
+
+const $ = id => document.getElementById(id);
+let app, auth, db, uid, room = "", nick = "", selected = "lotus";
+let stopRoom = null, stopPlayers = null, stopChat = null, wishTimer = null;
+let wishItems = [], wishIndex = 0, endingOpen = false, audioCtx = null, soundOn = false;
+let currentPlayersData = {}, currentKrathongsData = {};
+
+const status = (id, msg) => $(id).textContent = msg;
+const makeCode = () => Math.random().toString(36).slice(2, 8).toUpperCase();
+const roomRef = () => ref(db, `rooms/${room}`);
+const safe = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+function toast(message) {
+  const el = $("toast");
+  el.textContent = message;
+  el.classList.remove("hidden");
+  clearTimeout(toast.t);
+  toast.t = setTimeout(() => el.classList.add("hidden"), 2600);
+}
+
+/* Realistic Detailed Krathong SVG Generator */
+const KRATHONG_THEMES = {
+  lotus:    { petalOuter: "#f48fb1", petalInner: "#fce4ec", leaf: "#386641", leafDark: "#24472b", glow: "#ff9ec7" },
+  sakura:   { petalOuter: "#ffb7d5", petalInner: "#fff0f6", leaf: "#4a6b53", leafDark: "#2d4734", glow: "#ffcce2" },
+  marigold: { petalOuter: "#ffb703", petalInner: "#ffe169", leaf: "#3d6b42", leafDark: "#254529", glow: "#ffd166" },
+  orchid:   { petalOuter: "#c77dff", petalInner: "#f3d5ff", leaf: "#365e45", leafDark: "#1f3b2a", glow: "#e0aaff" }
+};
+
+function getKrathongSVG(kind = "lotus", isPreview = false) {
+  const mapOld = { "🪷": "lotus", "🌸": "sakura", "🌼": "marigold", "🌺": "orchid" };
+  const key = KRATHONG_THEMES[kind] ? kind : (mapOld[kind] || "lotus");
+  const t = KRATHONG_THEMES[key];
+  const cls = isPreview ? "choice-svg" : "krathong-svg";
+
+  return `
+  <svg class="${cls}" viewBox="0 0 160 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="glow-${key}" cx="50%" cy="35%" r="50%">
+        <stop offset="0%" stop-color="#fff8d6" stop-opacity="0.9"/>
+        <stop offset="45%" stop-color="${t.glow}" stop-opacity="0.35"/>
+        <stop offset="100%" stop-color="${t.glow}" stop-opacity="0"/>
+      </radialGradient>
+      <linearGradient id="base-${key}" x1="0" y1="85" x2="0" y2="122" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="${t.leaf}"/>
+        <stop offset="100%" stop-color="${t.leafDark}"/>
+      </linearGradient>
+    </defs>
+    <circle cx="80" cy="48" r="46" fill="url(#glow-${key})"/>
+    <line x1="74" y1="78" x2="66" y2="34" stroke="#d4a373" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="86" y1="78" x2="94" y2="34" stroke="#d4a373" stroke-width="1.8" stroke-linecap="round"/>
+    <circle cx="66" cy="33" r="2" fill="#ff595e"/>
+    <circle cx="94" cy="33" r="2" fill="#ff595e"/>
+    <rect x="76.5" y="54" width="7" height="26" rx="3" fill="#fff3b0"/>
+    <g class="flame">
+      <path d="M80 34C80 34 86 43 86 48C86 51.5 83.3 54 80 54C76.7 54 74 51.5 74 48C74 43 80 34 80 34Z" fill="#ffbe0b"/>
+      <path d="M80 40C80 40 83 45 83 48.5C83 50.5 81.6 52 80 52C78.4 52 77 50.5 77 48.5C77 45 80 40 80 40Z" fill="#ffffff"/>
+    </g>
+    <path d="M52 82C46 66 56 56 64 68C68 74 66 84 66 84Z" fill="${t.petalOuter}"/>
+    <path d="M108 82C114 66 104 56 96 68C92 74 94 84 94 84Z" fill="${t.petalOuter}"/>
+    <path d="M66 82C64 62 76 54 80 68C84 54 96 62 94 82Z" fill="${t.petalInner}"/>
+    <path d="M36 88C28 74 42 64 54 76C60 82 58 90 58 90Z" fill="${t.petalOuter}"/>
+    <path d="M124 88C132 74 118 64 106 76C100 82 102 90 102 90Z" fill="${t.petalOuter}"/>
+    <path d="M54 90C50 72 66 64 74 78C78 84 74 92 74 92Z" fill="${t.petalInner}"/>
+    <path d="M106 90C110 72 94 64 86 78C82 84 86 92 86 92Z" fill="${t.petalInner}"/>
+    <path d="M68 92C68 74 80 66 80 66C80 66 92 74 92 92Z" fill="${t.petalOuter}"/>
+    <path d="M24 88C24 84 136 84 136 88L124 114C120 121 40 121 36 114L24 88Z" fill="url(#base-${key})"/>
+    <path d="M24 88L34 78L44 88L54 78L64 88L74 78L80 86L86 78L96 88L106 78L116 88L126 78L136 88Z" fill="#528c5c"/>
+    <ellipse cx="80" cy="88" rx="56" ry="5" fill="#6aa874" opacity="0.55"/>
+  </svg>`;
+}
+
+["lotus", "sakura", "marigold", "orchid"].forEach(k => {
+  $("prev-" + k).innerHTML = getKrathongSVG(k, true);
+});
+
+async function boot() {
+  if (!app) {
+    app = initializeApp(firebaseConfig);
+    auth = getAuth(app);
+    db = getDatabase(app);
+  }
+  if (!auth.currentUser) {
+    const cred = await signInAnonymously(auth);
+    uid = cred.user.uid;
+  } else {
+    uid = auth.currentUser.uid;
+  }
+}
+
+async function enterRoom(code, create = false) {
+  nick = $("nickname").value.trim().slice(0, 18);
+  if (!nick) {
+    status("connectStatus", "ใส่ชื่อเล่นก่อนนะ ♡");
+    return;
+  }
+  try {
+    status("connectStatus", "กำลังเปิดประตูสู่แม่น้ำของเรา...");
+    await boot();
+    room = code;
+    const r = roomRef();
+    const snap = await get(r);
+
+    if (create) {
+      if (snap.exists()) return enterRoom(makeCode(), true);
+      await set(r, {
+        createdAt: serverTimestamp(),
+        players: {},
+        score: 0,
+        floating: false,
+        floatVotes: {},
+        wishes: {},
+        chat: {},
+        krathongs: {}
+      });
+    } else if (!snap.exists()) {
+      status("connectStatus", "ไม่พบห้องนี้ ลองตรวจสอบรหัสอีกครั้งนะ");
+      return;
+    }
+
+    const current = await get(ref(db, `rooms/${room}/players`));
+    const members = current.val() || {};
+    if (!members[uid] && Object.keys(members).length >= 2) {
+      status("connectStatus", "ห้องนี้มีผู้เล่นครบ 2 คนแล้ว");
+      return;
+    }
+
+    await set(ref(db, `rooms/${room}/players/${uid}`), {
+      name: nick,
+      joinedAt: serverTimestamp(),
+      online: true
+    });
+
+    $("connect").classList.add("hidden");
+    $("game").classList.remove("hidden");
+    $("roomLabel").textContent = room;
+
+    if (stopRoom) stopRoom();
+    if (stopPlayers) stopPlayers();
+    if (stopChat) stopChat();
+
+    stopRoom = onValue(r, s => renderRoom(s.val() || {}));
+    stopPlayers = onValue(ref(db, `rooms/${room}/players`), s => renderPlayers(s.val() || {}));
+    stopChat = onValue(ref(db, `rooms/${room}/chat`), s => renderChat(s.val() || {}));
+    spawnMoonOrb();
+  } catch (e) {
+    status("connectStatus", "เชื่อมต่อไม่สำเร็จ: " + e.message);
+  }
+}
+
+function renderRoom(data) {
+  const players = data.players || {};
+  currentPlayersData = players;
+  const ids = Object.keys(players).slice(0, 2);
+  const ks = data.krathongs || {};
+  currentKrathongsData = ks;
+
+  const floatsEl = $("floatingKrathongs");
+  floatsEl.classList.toggle("together", !!data.floating);
+
+  if (ids.length) {
+    floatsEl.innerHTML = ids.map(id => {
+      const pName = safe(players[id]?.name || "ของเรา");
+      const kind = ks[id]?.kind || "lotus";
+      return `
+        <div class="krathong-wrap">
+          ${getKrathongSVG(kind)}
+          <div class="water-ripple"></div>
+          <div class="krathong-tag">${pName}</div>
+        </div>`;
+    }).join("");
+  } else {
+    floatsEl.innerHTML = `<div class="krathong-wrap">${getKrathongSVG("lotus")}<div class="water-ripple"></div></div>`;
+  }
+
+  status("floatStatus", data.floating
+    ? "กระทงของเรากำลังลอยเคียงกันใต้แสงจันทร์แล้ว ✨"
+    : "เมื่อทั้งคู่กดส่งกระทงลงน้ำ ฉากพิเศษของเราจะเริ่มขึ้น");
+
+  const wishes = Object.values(data.wishes || {});
+  wishItems = wishes.slice(-30);
+  $("wishBoard").innerHTML = wishItems.length
+    ? wishItems.slice(-3).map(w => `<div><span style="color:var(--pink)">${safe(w.name)}:</span> ${safe(w.text)}</div>`).join("")
+    : "คำอธิษฐานของเราจะลอยอยู่ตรงนี้ ♡";
+
+  const sc = data.score || 0;
+  $("score").textContent = sc;
+  status("gameStatus", sc >= 20
+    ? "เก็บแสงจันทร์ครบ 20 ดวงแล้ว เก่งมาก! 🌙✨"
+    : `เหลืออีก ${20 - sc} ดวง มาช่วยกันเก็บแสงจันทร์นะ`);
+
+  const votes = data.floatVotes || {};
+  const both = ids.length >= 2 && ids.every(id => votes[id] === true);
+  if (both && !data.floating) {
+    set(ref(db, `rooms/${room}/floating`), true).catch(() => {});
+  }
+
+  if (data.floating) {
+    const id1 = ids[0], id2 = ids[1];
+    $("endingBoat1").innerHTML = `${getKrathongSVG(id1 ? ks[id1]?.kind : "lotus")}<div class="water-ripple"></div><div class="krathong-tag">${safe(players[id1]?.name || "")}</div>`;
+    $("endingBoat2").innerHTML = `${getKrathongSVG(id2 ? ks[id2]?.kind : "sakura")}<div class="water-ripple"></div><div class="krathong-tag">${safe(players[id2]?.name || "")}</div>`;
+    if (!endingOpen) showEnding();
+  }
+}
+
+function renderPlayers(players) {
+  const entries = Object.entries(players);
+  $("players").innerHTML = entries.map(([id, p], i) => `
+    <div class="player">
+      <div>
+        <b>${i === 0 ? "🌙" : "🌸"} ${safe(p.name)} ${id === uid ? "(คุณ)" : ""}</b>
+        <span>อยู่ในแม่น้ำเดียวกันแล้ว ♡</span>
+      </div>
+      <div class="online-dot" title="ออนไลน์"></div>
+    </div>`).join("") || '<div class="small">กำลังรออีกคนเข้ามา...</div>';
+}
+
+function renderChat(messages) {
+  const arr = Object.values(messages).slice(-45);
+  $("chatlog").innerHTML = arr.map(m => `<div class="msg"><b>${safe(m.name)}:</b> ${safe(m.text)}</div>`).join("");
+  $("chatlog").scrollTop = $("chatlog").scrollHeight;
+}
+
+function showEnding() {
+  endingOpen = true;
+  $("ending").classList.add("show");
+  $("ending").setAttribute("aria-hidden", "false");
+  startWishStream();
+  makeConfetti(36);
+}
+
+function startWishStream() {
+  clearInterval(wishTimer);
+  wishIndex = 0;
+  const update = () => {
+    if (!wishItems.length) {
+      $("endingWish").textContent = "ขอให้เราได้สร้างความทรงจำดี ๆ ด้วยกันอีกมากมาย ♡";
+      $("endingBy").textContent = "a little wish from our hearts";
+      return;
+    }
+    const w = wishItems[wishIndex % wishItems.length];
+    $("endingWish").textContent = `“${w.text}”`;
+    $("endingWish").style.animation = "none";
+    void $("endingWish").offsetWidth;
+    $("endingWish").style.animation = "rise 1s ease both";
+    $("endingBy").textContent = "คำอธิษฐานจาก " + w.name;
+    wishIndex++;
+  };
+  update();
+  wishTimer = setInterval(update, 4800);
+}
+
+function makeConfetti(count) {
+  const symbols = ["✦", "✧", "♡", "🌸", "✨"];
+  for (let i = 0; i < count; i++) {
+    const e = document.createElement("span");
+    e.className = "confetti";
+    e.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    e.style.left = Math.random() * 100 + "vw";
+    e.style.color = ["#ffe5a8", "#ffc4e8", "#d9c4ff", "#fff"][i % 4];
+    e.style.fontSize = (13 + Math.random() * 18) + "px";
+    e.style.animationDuration = (4.5 + Math.random() * 5) + "s";
+    document.body.appendChild(e);
+    setTimeout(() => e.remove(), 9800);
+  }
+}
+
+function spawnMoonOrb() {
+  const layer = $("orbLayer");
+  if (!layer) return;
+  setInterval(() => {
+    if (document.hidden || layer.childElementCount >= 3) return;
+    const orb = document.createElement("div");
+    orb.className = "moon-orb";
+    orb.textContent = "✦";
+    orb.style.left = (12 + Math.random() * 76) + "%";
+    orb.style.top = (25 + Math.random() * 45) + "%";
+    orb.onclick = async () => {
+      orb.remove();
+      await collectMoonlight();
+      toast("เก็บแสงจันทร์ได้ +1 ✨");
+    };
+    layer.appendChild(orb);
+    setTimeout(() => orb.remove(), 6500);
+  }, 3200);
+}
+
+async function collectMoonlight() {
+  if (!room) return;
+  try {
+    await runTransaction(ref(db, `rooms/${room}/score`), n => Math.min((n || 0) + 1, 20));
+  } catch (e) {
+    toast("เก็บแสงจันทร์ไม่สำเร็จ");
+  }
+}
+
+$("create").onclick = () => enterRoom(makeCode(), true);
+$("join").onclick = () => {
+  const c = $("roomCode").value.trim().toUpperCase();
+  if (c.length !== 6) {
+    status("connectStatus", "รหัสห้องต้องมี 6 ตัวอักษร");
+    return;
+  }
+  enterRoom(c, false);
+};
+
+$("copyCode").onclick = async () => {
+  try {
+    await navigator.clipboard.writeText(room);
+    toast("คัดลอกรหัสห้องแล้ว ส่งให้อีกคนได้เลย ♡");
+  } catch {
+    toast("รหัสห้องของคุณคือ " + room);
+  }
+};
+
+document.querySelectorAll(".choice").forEach(el => {
+  el.onclick = () => {
+    document.querySelectorAll(".choice").forEach(x => x.classList.remove("active"));
+    el.classList.add("active");
+    selected = el.dataset.kind;
+  };
+});
+
+$("saveCraft").onclick = async () => {
+  try {
+    await set(ref(db, `rooms/${room}/krathongs/${uid}`), { kind: selected });
+    status("craftStatus", "บันทึกกระทงของคุณลงสายน้ำแล้ว ♡");
+  } catch (e) {
+    status("craftStatus", "บันทึกไม่สำเร็จ: " + e.message);
+  }
+};
+
+$("floatNow").onclick = async () => {
+  try {
+    await set(ref(db, `rooms/${room}/floatVotes/${uid}`), true);
+    status("craftStatus", "คุณพร้อมลอยกระทงแล้ว รออีกคนกดส่งกระทงนะ ♡");
+  } catch (e) {
+    status("craftStatus", "ส่งกระทงไม่สำเร็จ: " + e.message);
+  }
+};
+
+$("sendWish").onclick = async () => {
+  const t = $("wish").value.trim();
+  if (!t) return;
+  try {
+    await push(ref(db, `rooms/${room}/wishes`), {
+      name: nick,
+      text: t.slice(0, 140),
+      at: serverTimestamp()
+    });
+    $("wish").value = "";
+    toast("ส่งคำอธิษฐานไปกับสายน้ำแล้ว ♡");
+  } catch (e) {
+    toast("ส่งไม่สำเร็จ: " + e.message);
+  }
+};
+
+$("collect").onclick = collectMoonlight;
+
+async function sendMessage() {
+  const t = $("chatInput").value.trim();
+  if (!t) return;
+  try {
+    await push(ref(db, `rooms/${room}/chat`), {
+      name: nick,
+      text: t.slice(0, 180),
+      at: serverTimestamp()
+    });
+    $("chatInput").value = "";
+  } catch (e) {
+    toast("ส่งข้อความไม่สำเร็จ");
+  }
+}
+$("sendChat").onclick = sendMessage;
+$("chatInput").addEventListener("keydown", e => { if (e.key === "Enter") sendMessage(); });
+
+$("closeEnding").onclick = () => {
+  $("ending").classList.remove("show");
+  $("ending").setAttribute("aria-hidden", "true");
+  endingOpen = false;
+  clearInterval(wishTimer);
+};
+
+let soundLoop = null, noiseNode = null;
+$("soundToggle").onclick = async () => {
+  try {
+    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    if (audioCtx.state === "suspended") await audioCtx.resume();
+    soundOn = !soundOn;
+
+    if (soundOn) {
+      startWaterNoise();
+      playPentatonic();
+      $("soundToggle").textContent = "♫ ปิดเสียงบรรยากาศ";
+      soundLoop = setInterval(playPentatonic, 2400);
+    } else {
+      clearInterval(soundLoop);
+      if (noiseNode) { noiseNode.stop(); noiseNode = null; }
+      $("soundToggle").textContent = "♫ เปิดเสียงบรรยากาศ";
+    }
+  } catch (e) {
+    toast("อุปกรณ์นี้ไม่รองรับเสียง");
+  }
+};
+
+function startWaterNoise() {
+  if (!audioCtx || noiseNode) return;
+  const bufferSize = audioCtx.sampleRate * 2;
+  const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+  const data = buffer.getChannelData(0);
+  for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
+
+  noiseNode = audioCtx.createBufferSource();
+  noiseNode.buffer = buffer;
+  noiseNode.loop = true;
+
+  const filter = audioCtx.createBiquadFilter();
+  filter.type = "lowpass";
+  filter.frequency.value = 320;
+
+  const gain = audioCtx.createGain();
+  gain.gain.value = 0.018;
+
+  noiseNode.connect(filter);
+  filter.connect(gain);
+  gain.connect(audioCtx.destination);
+  noiseNode.start();
+}
+
+function playPentatonic() {
+  if (!audioCtx || !soundOn) return;
+  const notes = [523.25, 587.33, 659.25, 783.99, 880.0, 1046.5];
+  const now = audioCtx.currentTime;
+  [0, 1].forEach(step => {
+    const freq = notes[Math.floor(Math.random() * notes.length)];
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.type = "sine";
+    osc.frequency.value = freq;
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    const start = now + step * 0.55;
+    gain.gain.setValueAtTime(0.0001, start);
+    gain.gain.exponentialRampToValueAtTime(0.032, start + 0.05);
+    gain.gain.exponentialRampToValueAtTime(0.0001, start + 1.6);
+    osc.start(start);
+    osc.stop(start + 1.65);
+  });
+}
+
+$("capture").onclick = () => {
+  try {
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+    canvas.width = 1200;
+    canvas.height = 900;
+
+    const bg = ctx.createLinearGradient(0, 0, 0, 900);
+    bg.addColorStop(0, "#120c2c");
+    bg.addColorStop(0.48, "#2d1d4e");
+    bg.addColorStop(0.52, "#13294b");
+    bg.addColorStop(1, "#071326");
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, 1200, 900);
+
+    for (let i = 0; i < 85; i++) {
+      ctx.fillStyle = `rgba(255, 245, 255, ${0.2 + Math.random() * 0.7})`;
+      ctx.beginPath();
+      ctx.arc(Math.random() * 1200, Math.random() * 430, Math.random() * 1.8, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    const moonX = 600, moonY = 175;
+    const moonGlow = ctx.createRadialGradient(moonX, moonY, 20, moonX, moonY, 170);
+    moonGlow.addColorStop(0, "rgba(255, 245, 210, 0.85)");
+    moonGlow.addColorStop(0.4, "rgba(255, 215, 165, 0.22)");
+    moonGlow.addColorStop(1, "rgba(255, 215, 165, 0)");
+    ctx.fillStyle = moonGlow;
+    ctx.beginPath();
+    ctx.arc(moonX, moonY, 170, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.fillStyle = "#fff8e1";
+    ctx.beginPath();
+    ctx.arc(moonX, moonY, 54, 0, Math.PI * 2);
+    ctx.fill();
+
+    for (let y = 475; y < 860; y += 11) {
+      const spread = (y - 460) * 0.35;
+      const w = 30 + Math.sin(y * 0.15) * 25 + spread * 0.25;
+      ctx.fillStyle = `rgba(255, 235, 185, ${Math.max(0.03, 0.24 - (y - 475) * 0.0005)})`;
+      ctx.fillRect(moonX - w / 2, y, w, 3);
+    }
+
+    ctx.strokeStyle = "rgba(255, 230, 245, 0.28)";
+    ctx.lineWidth = 2;
+    ctx.strokeRect(36, 36, 1128, 828);
+
+    ctx.textAlign = "center";
+    ctx.fillStyle = "#ffe5f4";
+    ctx.font = "56px Georgia, serif";
+    ctx.fillText("Our Loy Krathong", 600, 325);
+
+    const names = Object.values(currentPlayersData).map(p => p.name).slice(0, 2);
+    const pairLabel = names.length === 2 ? `${names[0]}  ♡  ${names[1]}` : (names[0] || "A Night For Two");
+    ctx.fillStyle = "#ffe4a3";
+    ctx.font = "28px sans-serif";
+    ctx.fillText(pairLabel, 600, 380);
+
+    const ids = Object.keys(currentPlayersData).slice(0, 2);
+    const drawMiniKrathong = (cx, cy, kind) => {
+      const t = KRATHONG_THEMES[kind] || KRATHONG_THEMES.lotus;
+      const g = ctx.createRadialGradient(cx, cy - 25, 5, cx, cy - 25, 65);
+      g.addColorStop(0, "rgba(255,245,190,0.65)");
+      g.addColorStop(1, "rgba(255,245,190,0)");
+      ctx.fillStyle = g;
+      ctx.beginPath();
+      ctx.arc(cx, cy - 25, 65, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = t.leaf;
+      ctx.beginPath();
+      ctx.moveTo(cx - 55, cy);
+      ctx.lineTo(cx + 55, cy);
+      ctx.lineTo(cx + 42, cy + 26);
+      ctx.lineTo(cx - 42, cy + 26);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.fillStyle = t.petalOuter;
+      [-32, -16, 0, 16, 32].forEach(dx => {
+        ctx.beginPath();
+        ctx.ellipse(cx + dx, cy - 6, 12, 20, dx * 0.015, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      ctx.fillStyle = "#fff3b0";
+      ctx.fillRect(cx - 4, cy - 34, 8, 24);
+      ctx.fillStyle = "#ffbe0b";
+      ctx.beginPath();
+      ctx.arc(cx, cy - 42, 6, 0, Math.PI * 2);
+      ctx.fill();
+    };
+
+    drawMiniKrathong(485, 575, ids[0] ? currentKrathongsData[ids[0]]?.kind : "lotus");
+    drawMiniKrathong(715, 575, ids[1] ? currentKrathongsData[ids[1]]?.kind : "sakura");
+
+    const latestWish = wishItems.length ? `“${wishItems[wishItems.length - 1].text}”` : "Under the same moon, we make our wishes together.";
+    ctx.fillStyle = "#fae0f2";
+    ctx.font = "25px sans-serif";
+    ctx.fillText(latestWish.slice(0, 65), 600, 715);
+
+    ctx.fillStyle = "#cbb8e6";
+    ctx.font = "18px sans-serif";
+    ctx.fillText(`ROOM ${room}  ·  ${new Date().toLocaleDateString("th-TH")}`, 600, 810);
+
+    const a = document.createElement("a");
+    a.download = `our-loy-krathong-${room || "memory"}.png`;
+    a.href = canvas.toDataURL("image/png");
+    a.click();
+    toast("บันทึกภาพความทรงจำของเราแล้ว ♡");
+  } catch (e) {
+    toast("ไม่สามารถบันทึกภาพได้บนเบราว์เซอร์นี้");
+  }
+};
+
+const sky = $("sky"), sctx = sky.getContext("2d");
+let stars = [];
+function resizeSky() {
+  sky.width = innerWidth * devicePixelRatio;
+  sky.height = innerHeight * devicePixelRatio;
+  sctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+  stars = Array.from({ length: Math.min(130, Math.floor(innerWidth / 6)) }, () => ({
+    x: Math.random() * innerWidth,
+    y: Math.random() * innerHeight,
+    r: Math.random() * 1.5 + 0.3,
+    a: Math.random(),
+    v: Math.random() * 0.008 + 0.002
+  }));
+}
+function drawSky() {
+  sctx.clearRect(0, 0, innerWidth, innerHeight);
+  for (const s of stars) {
+    s.a += s.v;
+    if (s.a > 1 || s.a < 0) s.v *= -1;
+    sctx.globalAlpha = Math.max(0.15, Math.min(0.9, s.a));
+    sctx.fillStyle = "#fff5ff";
+    sctx.beginPath();
+    sctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+    sctx.fill();
+  }
+  sctx.globalAlpha = 1;
+  requestAnimationFrame(drawSky);
+}
+addEventListener("resize", resizeSky);
+resizeSky();
+drawSky();
+
+function initRiverAnimation(canvasId) {
+  const c = $(canvasId);
+  if (!c) return;
+  const ctx = c.getContext("2d");
+  const lanterns = Array.from({ length: 7 }, () => ({
+    x: Math.random(),
+    y: 0.1 + Math.random() * 0.35,
+    s: 0.5 + Math.random() * 0.7,
+    vx: 0.00012 + Math.random() * 0.00015,
+    vy: -0.00008 - Math.random() * 0.0001
+  }));
+  const fireflies = Array.from({ length: 18 }, () => ({
+    x: Math.random(),
+    y: 0.45 + Math.random() * 0.5,
+    phase: Math.random() * Math.PI * 2,
+    speed: 0.015 + Math.random() * 0.02
+  }));
+
+  function render(t) {
+    const rect = c.getBoundingClientRect();
+    if (rect.width === 0 || rect.height === 0) {
+      requestAnimationFrame(render);
+      return;
+    }
+    const w = rect.width;
+    const h = rect.height;
+    if (c.width !== Math.floor(w * devicePixelRatio) || c.height !== Math.floor(h * devicePixelRatio)) {
+      c.width = Math.floor(w * devicePixelRatio);
+      c.height = Math.floor(h * devicePixelRatio);
+    }
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+
+    const horizon = h * 0.48;
+    const time = t * 0.001;
+
+    const skyGrad = ctx.createLinearGradient(0, 0, 0, horizon);
+    skyGrad.addColorStop(0, "#151030");
+    skyGrad.addColorStop(0.6, "#2c1e4a");
+    skyGrad.addColorStop(1, "#452c5e");
+    ctx.fillStyle = skyGrad;
+    ctx.fillRect(0, 0, w, horizon + 2);
+
+    const moonX = canvasId === "endingCanvas" ? w * 0.5 : w * 0.78;
+    const moonY = horizon * 0.38;
+    const moonR = Math.min(w, h) * 0.095;
+
+    const halo = ctx.createRadialGradient(moonX, moonY, moonR * 0.4, moonX, moonY, moonR * 3.4);
+    halo.addColorStop(0, "rgba(255, 245, 210, 0.75)");
+    halo.addColorStop(0.35, "rgba(255, 210, 175, 0.22)");
+    halo.addColorStop(1, "rgba(255, 210, 175, 0)");
+    ctx.fillStyle = halo;
+    ctx.beginPath();
+    ctx.arc(moonX, moonY, moonR * 3.4, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.fillStyle = "#fff9e6";
+    ctx.beginPath();
+    ctx.arc(moonX, moonY, moonR, 0, Math.PI * 2);
+    ctx.fill();
+
+    for (const l of lanterns) {
+      l.x += l.vx;
+      l.y += l.vy;
+      if (l.y < -0.05 || l.x > 1.05) {
+        l.x = Math.random() * 0.8;
+        l.y = 0.46;
+      }
+      const lx = l.x * w;
+      const ly = l.y * h;
+      const lg = ctx.createRadialGradient(lx, ly, 1, lx, ly, 12 * l.s);
+      lg.addColorStop(0, "rgba(255, 220, 140, 0.95)");
+      lg.addColorStop(1, "rgba(255, 160, 90, 0)");
+      ctx.fillStyle = lg;
+      ctx.beginPath();
+      ctx.arc(lx, ly, 12 * l.s, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    ctx.fillStyle = "#12152e";
+    ctx.beginPath();
+    ctx.moveTo(0, horizon);
+    ctx.lineTo(0, horizon - h * 0.11);
+    ctx.quadraticCurveTo(w * 0.22, horizon - h * 0.22, w * 0.45, horizon - h * 0.08);
+    ctx.quadraticCurveTo(w * 0.72, horizon - h * 0.19, w, horizon - h * 0.09);
+    ctx.lineTo(w, horizon);
+    ctx.closePath();
+    ctx.fill();
+
+    const waterGrad = ctx.createLinearGradient(0, horizon, 0, h);
+    waterGrad.addColorStop(0, "#1d2c4d");
+    waterGrad.addColorStop(0.35, "#112240");
+    waterGrad.addColorStop(1, "#060e1f");
+    ctx.fillStyle = waterGrad;
+    ctx.fillRect(0, horizon, w, h - horizon);
+
+    for (let y = horizon + 4; y < h; y += 4) {
+      const progress = (y - horizon) / (h - horizon);
+      const wave = Math.sin(y * 0.18 - time * 3.2) * (6 + progress * 18);
+      const width = (moonR * 1.1) + Math.sin(y * 0.3 + time * 4) * 14 + progress * 35;
+      const alpha = (1 - progress * 0.75) * (0.14 + 0.08 * Math.sin(y * 0.25 + time * 5));
+
+      ctx.fillStyle = `rgba(255, 236, 185, ${Math.max(0.02, alpha)})`;
+      ctx.fillRect(moonX - width / 2 + wave, y, width, 2.2);
+    }
+
+    ctx.strokeStyle = "rgba(180, 210, 255, 0.07)";
+    ctx.lineWidth = 1;
+    for (let i = 0; i < 14; i++) {
+      const wy = horizon + ((i + 1) / 15) * (h - horizon);
+      ctx.beginPath();
+      for (let wx = 0; wx <= w; wx += 24) {
+        const dy = Math.sin(wx * 0.02 + time * 1.8 + i) * 2.5;
+        if (wx === 0) ctx.moveTo(wx, wy + dy);
+        else ctx.lineTo(wx, wy + dy);
+      }
+      ctx.stroke();
+    }
+
+    for (const f of fireflies) {
+      f.phase += f.speed;
+      const fx = (f.x + Math.sin(f.phase * 0.6) * 0.03) * w;
+      const fy = (f.y + Math.cos(f.phase * 0.8) * 0.02) * h;
+      const glow = 0.3 + 0.7 * Math.abs(Math.sin(f.phase));
+      ctx.fillStyle = `rgba(255, 240, 165, ${glow})`;
+      ctx.beginPath();
+      ctx.arc(fx, fy, 1.8, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    requestAnimationFrame(render);
+  }
+  requestAnimationFrame(render);
+}
+
+initRiverAnimation("riverCanvas");
+initRiverAnimation("endingCanvas");
+</script>
+</body>
+</html>
